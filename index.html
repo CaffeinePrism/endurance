@@ -32,14 +32,34 @@
   .head{
     background-color:black;
     }
+  label{
+    color:white;
+    font-family:Arial;
+  }
+  .win{
+    color:white;
+    font-family:Arial;
+  }
+  .footer{
+    float:right;
+    text-align:right;
+  }
 </style>
+<meta name="viewport" content="initial-scale=1,maximum-scale=1">
 </head>
 <body>
+  <audio loop>
+    <source src="assets/nyan.ogg" type="audio/ogg">
+  </audio>
   <div class="content">
   <div class="head"><img src='assets/images/head.png' /></div>
   <canvas id="canvas"></canvas>
   <br />
-  <p onclick="location.reload()" class="restart" >Restart</p>
+  <div class="footer">
+    <div onclick="location.reload()" class='restart'>Restart</div>
+    <div id="win" class='win'>You are not on the other side yet</div>
+  </div>
+  <label id="minutes">00</label><label>:</label><label id="seconds">00</label>
   <script type="text/javascript" src="assets/js/main.js"></script>
 </div>
 </body>

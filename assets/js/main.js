@@ -1,3 +1,10 @@
+var minutesLabel = document.getElementById("minutes");
+var secondsLabel = document.getElementById("seconds");
+var totalSeconds = 0;
+var audio = document.getElementsByTagName('audio')[0];
+var started = false;
+var interval;
+
 function randColor() {
   return '#'+Math.floor(Math.random()*16777215).toString(16);
 }
@@ -15,7 +22,10 @@ function getCanvasColor() {
 }
 
 function won() {
-  alert('win');
+  var win = document.getElementById('win');
+  win.innerHTML = 'Wow you got to the other side';
+  clearInterval(timer);
+  audio.pause();
 }
 
 function Box() {
@@ -74,11 +84,15 @@ Box.prototype.goForward = function() {
 }
 
 Box.prototype.randMove = function() {
+  if(secondsLabel.innerHTML == 0 && minutesLabel.innerHTML == 0 && started == false) {
+    startEverything();
+    started = true;
+  }
   if(this.winner()) {
     return
   }
   randomBackground();
-  var rand = Math.random() < 0.5 ? true : false;
+  var rand = Math.random() < .55 ? true : false;
   if(rand) {
     this.goForward();
   }
@@ -91,67 +105,40 @@ Box.prototype.winner = function() {
   //get to the other side or colors match
   if(this.x == this.canvas.width - this.box_width) {
     won();
+    return true;
   }
   if(this.y == 0) {
     won();
+    return true;
   }
-}
-
-var KEYCODES = {
-  'shift' : '16',
-  'ctrl' : '17',
-  'alt' : '18',
-  '0' : '48',
-  '1' : '49',
-  '2' : '50',
-  '3' : '51',
-  '4' : '52',
-  '5' : '53',
-  '6' : '54',
-  '7' : '55',
-  '8' : '56',
-  '9' : '57',
-  'a' : '65',
-  'b' : '66',
-  'c' : '67',
-  'd' : '68',
-  'e' : '69',
-  'f' : '70',
-  'g' : '71',
-  'h' : '72',
-  'i' : '73',
-  'j' : '74',
-  'k' : '75',
-  'l' : '76',
-  'm' : '77',
-  'n' : '78',
-  'o' : '79',
-  'p' : '80',
-  'q' : '81',
-  'r' : '82',
-  's' : '83',
-  't' : '84',
-  'u' : '85',
-  'v' : '86',
-  'w' : '87',
-  'x' : '88',
-  'y' : '89',
-  'z' : '90',
+  return false;
 }
 
 function randomKeyBinds(box) {
   var el = document;
-  for (var k in KEYCODES) {
-    el.onkeyup = function(evt) {
-      evt = evt || window.event;
-      b.randMove();
-    };
-  }
+  el.onkeyup = function(evt) {
+    evt = evt || window.event;
+    b.randMove();
+  };
+  el.ontouchend = function(evt) {
+    evt = evt || window.event;
+    b.randMove();
+  };
+}
+
+function forceWin(box) {
+  setInterval(function () {box.randMove()}, 15);
+}
+
+function startEverything() {
+  audio.play();
+  timer = setInterval(setTime, 1000);
 }
 
 document.addEventListener("DOMContentLoaded", function(event) {
   b = new Box();
   randomKeyBinds(b);
+//  forceWin(b)
 
 
 //  setInterval(function () {b.moveTo(b.x+20, b.y)}, 500);
@@ -159,3 +146,23 @@ document.addEventListener("DOMContentLoaded", function(event) {
 //  setInterval(function () {randomBackground()}, 500);
 
 });
+
+function setTime()
+{
+  ++totalSeconds;
+  secondsLabel.innerHTML = pad(totalSeconds%60);
+  minutesLabel.innerHTML = pad(parseInt(totalSeconds/60));
+}
+
+function pad(val)
+{
+  var valString = val + "";
+  if(valString.length < 2)
+  {
+    return "0" + valString;
+  }
+  else
+  {
+    return valString;
+  }
+}
