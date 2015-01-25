@@ -1,20 +1,46 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Seizure</title>
+<title>Endurance</title>
 <style>
+  html{
+    background-color:black;
+  }
   canvas {
-    border: 1px dotted;
-    height: 100%;
+    border: 1px;
+    height: 100px;
     width: 100%;
   }
+  .content {
+    margin-left:auto;
+    margin-right:auto;
+    margin-top:20%;
+    width:50%;
+    }
+  h1{
+    font-family:Arial;
+    color:white;
+  }
+  .restart{
+    font-family:Arial;
+    color:white;
+    font-size:10;
+    }
+  details{
+    color:white;
+  }
+  .head{
+    background-color:black;
+    }
 </style>
 </head>
 <body>
-<h1>What do we do now?</h1>
-<canvas id="canvas"></canvas>
-<button onclick="location.reload()">Restart!</button>
-<script type="text/javascript" src="assets/js/main.js"></script>
-
+  <div class="content">
+  <div class="head"><img src='assets/images/head.png' /></div>
+  <canvas id="canvas"></canvas>
+  <br />
+  <p onclick="location.reload()" class="restart" >Restart</p>
+  <script type="text/javascript" src="assets/js/main.js"></script>
+</div>
 </body>
 </html>
