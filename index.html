@@ -10,20 +10,30 @@
     <source src="assets/nyan.ogg" type="audio/ogg">
     <source src="assets/nyan.mp3" type="audio/mp3">
   </audio>
-  <div class="content">
-  <div class="head"><img src='assets/images/head.png' /></div>
-  <canvas id="canvas"></canvas>
-  <br />
-  <div id="right_footer">
-    <div onclick="resetScore()" class='restart'>Reset your progress</div>
-    <div class='win'>When you get to this side, your score will increase<br />and you can play again!</div>
-  </div>
-  <div id='left_footer'>
-    <label id="minutes">00</label><label>:</label><label id="seconds">00</label>
-    <div id="completed">
-      <div id="completed_number">Score: 0</div>
+  <div id="content">
+
+    <div id="head">
+      <div id="head_title">Endurance</div>
+      <br />
+      <div id="head_sub">How many times can you get to the other side?</div>
     </div>
+
+    <canvas id="canvas"></canvas>
+    <br />
+
+    <div id="right_footer">
+      <div onclick="resetScore()" id='restart'>I want to start over from zero</div>
+      <div id='win' onclick="location.reload()"></div>
+    </div>
+
+    <div id='left_footer'>
+      <label id="minutes">00</label><label>:</label><label id="seconds">00</label>
+      <div id="completed">
+        <div id="completed_number">Score: 0</div>
+      </div>
+    </div>
+
   <script type="text/javascript" src="assets/js/main.js"></script>
-</div>
+  </div>
 </body>
 </html>

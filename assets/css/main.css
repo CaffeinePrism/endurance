@@ -6,33 +6,41 @@ canvas {
   height: 100px;
   width: 100%;
 }
-.content {
+details{
+  color:white;
+}
+h1{
+  font-family:Arial;
+  color:white;
+}
+label{
+  color:white;
+  font-family:Arial;
+}
+#content {
   margin-left:auto;
   margin-right:auto;
   margin-top:15%;
   margin-bottom:auto;
   width:50%;
 }
-h1{
-  font-family:Arial;
-  color:white;
-}
-.restart{
+#restart{
   font-family:Arial;
   color:white;
   font-size:10;
 }
-details{
-  color:white;
-}
-.head{
-  background-color:black;
-}
-label{
+#head{
   color:white;
   font-family:Arial;
 }
-.win{
+#head_title{
+  font-size:50px;
+}
+#head_sub{
+  margin-top:-3%;
+  padding-left:5%;
+}
+#win{
   color:white;
   font-family:Arial;
 }
