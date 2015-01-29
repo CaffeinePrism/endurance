@@ -9,7 +9,8 @@ canvas {
 .content {
   margin-left:auto;
   margin-right:auto;
-  margin-top:20%;
+  margin-top:15%;
+  margin-bottom:auto;
   width:50%;
 }
 h1{
@@ -35,7 +36,15 @@ label{
   color:white;
   font-family:Arial;
 }
-.footer{
+#right_footer{
   float:right;
   text-align:right;
+}
+#left_footer{
+  float:left;
+  text-align:left;
+}
+#completed{
+  font-family:Arial;
+  color:white;
 }

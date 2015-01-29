@@ -4,6 +4,7 @@ var totalSeconds = 0;
 var audio = document.getElementsByTagName('audio')[0];
 var started = false;
 var interval;
+var wonAlready = false;
 
 function randColor() {
   return '#'+Math.floor(Math.random()*16777215).toString(16);
@@ -22,10 +23,29 @@ function getCanvasColor() {
 }
 
 function won() {
-  var win = document.getElementById('win');
-  win.innerHTML = 'Wow you got to the other side';
   clearInterval(timer);
   audio.pause();
+  Score();
+}
+
+function Score(){
+  if (wonAlready == false) {
+    wonAlready = true;
+    localStorage.completed = Number(localStorage.completed) + 1;
+    printScore();
+    location.reload();
+  }
+}
+
+function printScore(){
+  var score = document.getElementById('completed_number');
+  score.innerHTML = "Score: " + localStorage.completed;
+}
+
+function resetScore(){
+  localStorage.completed = 0;
+  printScore();
+  location.reload();
 }
 
 function Box() {
@@ -92,7 +112,7 @@ Box.prototype.randMove = function() {
     return
   }
   randomBackground();
-  var rand = Math.random() < .55 ? true : false;
+  var rand = Math.random() < 1 ? true : false;
   if(rand) {
     this.goForward();
   }
@@ -127,7 +147,7 @@ function randomKeyBinds(box) {
 }
 
 function forceWin(box) {
-  setInterval(function () {box.randMove()}, 15);
+  setInterval(function () {box.randMove()}, 1);
 }
 
 function startEverything() {
@@ -136,6 +156,10 @@ function startEverything() {
 }
 
 document.addEventListener("DOMContentLoaded", function(event) {
+  if (localStorage.completed === undefined) {
+    localStorage.completed = 0;
+  }
+  printScore();
   b = new Box();
   randomKeyBinds(b);
 //  forceWin(b)
