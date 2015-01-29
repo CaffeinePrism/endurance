@@ -35,10 +35,13 @@ label{
 }
 #head_title{
   font-size:50px;
+  text-shadow:0 0 10px #ffffff;
 }
 #head_sub{
   margin-top:-3%;
   padding-left:5%;
+  text-shadow:0 0 5px #ffffff;
+  font-size:20px;
 }
 #win{
   color:white;
