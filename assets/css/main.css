@@ -1,5 +1,7 @@
 html{
   background-color:black;
+  color:white;
+  font-family:Arial;
 }
 canvas {
   border: 1px;
@@ -35,12 +37,11 @@ label{
 }
 #head_title{
   font-size:50px;
-  text-shadow:0 0 10px #ffffff;
 }
 #head_sub{
-  margin-top:-3%;
+  margin-top:-2.5%;
   padding-left:5%;
-  text-shadow:0 0 5px #ffffff;
+  padding-bottom:1%;
   font-size:20px;
 }
 #win{
@@ -58,4 +59,26 @@ label{
 #completed{
   font-family:Arial;
   color:white;
+}
+#canvas{
+}
+summary::-webkit-details-marker {
+  display:none;
+}
+summary:before{
+  content:"+ ";
+  font-weight:bold;
+}
+details[open] summary:before{
+  content:"- ";
+  font-weight:bold;
+}
+summary{
+  outline:0;
+  border:0;
+}
+#shop_items{
+  font-size:12px;
+  padding-left:3%;
+  margin-top:-1%;
 }

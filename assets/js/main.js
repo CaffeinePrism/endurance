@@ -151,8 +151,8 @@ function randomKeyBinds(box) {
   };
 }
 
-function forceWin(box) {
-  setInterval(function () {box.randMove()}, 1);
+function forceWin(box, x) {
+  setInterval(function () {box.randMove()}, x);
 }
 
 function startEverything() {
