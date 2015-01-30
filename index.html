@@ -2,6 +2,25 @@
 <html>
 <head>
 <title>The Moving Box</title>
+<link rel="apple-touch-icon" sizes="57x57" href="/assets/favicons/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/assets/favicons/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/assets/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/assets/favicons/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/assets/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/assets/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/assets/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/assets/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/favicons/apple-touch-icon-180x180.png">
+<link rel="icon" type="image/png" href="/assets/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/assets/favicons/android-chrome-192x192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="/assets/favicons/favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/assets/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/assets/favicons/android-chrome-manifest.json">
+<link rel="shortcut icon" href="/assets/favicons/favicon.ico">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="msapplication-TileImage" content="/assets/favicons/mstile-144x144.png">
+<meta name="msapplication-config" content="/assets/favicons/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">
 <meta name="viewport" content="initial-scale=1,maximum-scale=1">
 <link rel="stylesheet" href="assets/css/main.css">
 </head>
@@ -29,9 +48,10 @@
     <div id='left_footer'>
       <label id="minutes">00</label><label>:</label><label id="seconds">00</label>
       <div id="completed">
-        <div id="completed_number">Score: 0</div>
+        <div id="completed_number">Wow, I've made it 0 times</div>
       </div>
     </div>
+    <br />
     <br />
     <br />
     <br />
@@ -39,7 +59,8 @@
       <details>
         <summary>Shop</summary>
         <div id='shop_items'>
-          <p id=''>This isn't implemented yet</p>
+          <p onclick="getWallpaper()">Get our wall paper! (Cost: 1)</p>
+          <p onclick="getClickerOne()">Get an automover! (Cost: 10)</p>
         </div>
       </details>
     </div>

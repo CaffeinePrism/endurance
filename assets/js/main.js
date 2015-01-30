@@ -5,8 +5,12 @@ var audio = document.getElementsByTagName('audio')[0];
 var started = false;
 var interval;
 var wonAlready = false;
-var probability = 0.7 - (localStorage.completed * .01)
+var probability = 0.7 - (localStorage.completed * .005)
 
+
+if (probability < .5){
+  probability = .51
+}
 function randColor() {
   return '#'+Math.floor(Math.random()*16777215).toString(16);
 }
@@ -40,7 +44,7 @@ function Score(){
 
 function printScore(){
   var score = document.getElementById('completed_number');
-  score.innerHTML = "Score: " + localStorage.completed;
+  score.innerHTML = "Wow I've made it " + localStorage.completed + " times";
 }
 
 function printWon(){
@@ -50,6 +54,7 @@ function printWon(){
 
 function resetScore(){
   localStorage.completed = 0;
+  localStorage.clicker = 0;
   printScore();
   location.reload();
 }
@@ -167,6 +172,9 @@ document.addEventListener("DOMContentLoaded", function(event) {
   printScore();
   b = new Box();
   randomKeyBinds(b);
+  for (i=0; i<localStorage.clicker; i++){
+    forceWin(b,1000);
+  }
 });
 
 function setTime()
@@ -186,5 +194,27 @@ function pad(val)
   else
   {
     return valString;
+  }
+}
+
+function getWallpaper(){
+  if (localStorage.completed >= 1){
+    window.open('assets/images/endurance_1920x1080.png');
+    localStorage.completed = localStorage.completed - 1;
+    printScore();
+  }
+  else{
+    window.alert("You don't have enough stuffs")
+  }
+}
+
+function getClickerOne(){
+  if (localStorage.completed >= 10){
+    localStorage.clicker = 1
+    localStorage.completed = localStorage.completed - 10
+    location.reload()
+  }
+  else{
+    window.alert("You don't have enough stuffs")
   }
 }
