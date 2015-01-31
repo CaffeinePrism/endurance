@@ -70,7 +70,7 @@ summary:before{
   font-weight:bold;
 }
 details[open] summary:before{
-  content:"- ";
+  content:"";
   font-weight:bold;
 }
 summary{

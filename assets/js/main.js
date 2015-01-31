@@ -7,20 +7,28 @@ var interval;
 var wonAlready = false;
 var probability = 0.7 - (Number(localStorage.completed) * .005);
 
-// for storing and splitting the saved colors
-// var test1;
-//
-// function test(){
-//   localStorage.test = "red,orange"
-// }
-//
-// function test2(){
-//   return test1 = localStorage.test.split(",");
-// }
+var unlockedColors;
+
+function setColor(newColor){
+  localStorage.colors = localStorage.colors + "," + newColor;
+  if (localStorage.completed > 0){
+    localStorage.completed = localStorage.completed - 1;
+  }
+  location.reload();
+}
+
+function colorSplit(){
+  return unlockedColors = localStorage.colors.split(",");
+}
 
 // Generates random colors
+Array.prototype.randomElement = function () {
+    return this[Math.floor(Math.random() * this.length)]
+}
+
 function randColor() {
-  return '#'+Math.floor(Math.random()*16777215).toString(16);
+  colorSplit();
+  return unlockedColors.randomElement();
 }
 
 function randomBackground() {
@@ -64,6 +72,7 @@ function printWon(){
 function resetScore(){
   localStorage.completed = 0;
   localStorage.clicker = 0;
+  localStorage.colors = "black,white"
   printScore();
   location.reload();
 }

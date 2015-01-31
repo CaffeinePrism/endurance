@@ -56,13 +56,24 @@
     <br />
     <br />
     <br />
-    
+
     <div id='shop'>
       <details open>
         <summary>Shop</summary>
         <div id='shop_items'>
-          <p onclick="getWallpaper()">Get our wall paper! (Cost: 1)</p>
-          <p onclick="getClickerOne()">Get an automover! (Cost: 10)</p>
+          <p onclick="getWallpaper()">I want the wallpaper! (Cost: 1)</p>
+          <p onclick="getClickerOne()">I want an automover! (Cost: 10)</p>
+          <details>
+            <summary>I want to unlock a color! (Cost: 1)</summary>
+            <div id='shop_items'>
+              <p onclick="setColor('red')">Red!</p>
+              <p onclick="setColor('orange')">Orange!</p>
+              <p onclick="setColor('yellow')">Yellow!</p>
+              <p onclick="setColor('green')">Green!</p>
+              <p onclick="setColor('blue')">Blue!</p>
+              <p onclick="setColor('purple')">Purple!</p>
+            <div>
+          </details>
         </div>
       </details>
     </div>
