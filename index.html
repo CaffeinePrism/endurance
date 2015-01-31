@@ -34,7 +34,7 @@
     <div id="head">
       <div id="head_title">The Moving Box</div>
       <br />
-      <div id="head_sub">How many times can you get to the other side?</div>
+      <div id="head_sub">Gotta love colors</div>
     </div>
 
     <canvas id="canvas"></canvas>
@@ -61,10 +61,11 @@
       <details open>
         <summary>Shop</summary>
         <div id='shop_items'>
+
           <p onclick="getWallpaper()">I want the wallpaper! (Cost: 1)</p>
-          <p onclick="getClickerOne()">I want an automover! (Cost: 10)</p>
+
           <details>
-            <summary>I want to unlock a color! (Cost: 1)</summary>
+            <summary>I want more colors! (Cost: 5)</summary>
             <div id='shop_items'>
               <p onclick="setColor('red')">Red!</p>
               <p onclick="setColor('orange')">Orange!</p>
@@ -74,6 +75,10 @@
               <p onclick="setColor('purple')">Purple!</p>
             <div>
           </details>
+
+          <p onclick="getClickerOne()">I want an automover! (Cost: 10)</p>
+          <p onclick="getSecret()">I will unlocked the secrets of this game! (Cost: 50)</p>
+
         </div>
       </details>
     </div>

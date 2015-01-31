@@ -10,15 +10,29 @@ var probability = 0.7 - (Number(localStorage.completed) * .005);
 var unlockedColors;
 
 function setColor(newColor){
-  localStorage.colors = localStorage.colors + "," + newColor;
-  if (localStorage.completed > 0){
-    localStorage.completed = localStorage.completed - 1;
+  if (localStorage.completed >= 5){
+    localStorage.completed = Number(localStorage.completed) - 5;
+    localStorage.colors = localStorage.colors + "," + newColor;
+    location.reload();
   }
-  location.reload();
+  else{
+    alert("You don't have enough stuffs");
+  }
 }
 
 function colorSplit(){
   return unlockedColors = localStorage.colors.split(",");
+}
+
+function getSecret(){
+  if (localStorage.completed >= 50){
+    localStorage.completed = Number(localStorage.completed) - 50;
+    alert("Just mash buttons brah");
+  }
+  else{
+    alert("You don't have enough stuffs");
+    location.reload();
+  }
 }
 
 // Generates random colors
@@ -189,6 +203,9 @@ document.addEventListener("DOMContentLoaded", function(event) {
   }
   if (probability < .5){
     probability = .51
+  }
+  if (localStorage.colors === undefined){
+    localStorage.colors = "black,white"
   }
   printScore();
   b = new Box();
